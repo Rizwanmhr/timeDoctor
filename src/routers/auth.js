@@ -3,9 +3,7 @@ const router = express.Router();
 require('../db/conn')
 const User = require('../models/userSchema')
 
-router.get("/task",(req,res)=>{
-    return res.send("Hello from router");
-});
+
 router.post("/register", async (req,res)=>{
     const {name, email, phone, designation, employeetype, userId} = req.body;
   if(!name || !email || !phone || !designation || !employeetype || !userId){
@@ -22,14 +20,15 @@ try {
 } catch (error) {
     console.log(error)
 }
+
+});
 //handle Get method
 router.get("/register", async (req,res) => {
     try {
         const employeData = await User.find({});
-        res.status(201).send(employeData)
+        res.status(200).send(employeData)
     } catch (error) {
         res.status(400).send(error)
     }
 })
-});
 module.exports = router

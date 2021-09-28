@@ -8,7 +8,8 @@ let port = 3000 || process.env.PORT;
 require('./db/conn')
 app.use(express.json())
 //to link our routers
-app.use(require('./routers//auth'))
+app.use(require('./routers/auth'))
+app.use(require('./routers/task'))
 //Middleware
 const middleware = (req,res,next) =>{
 console.log('Hello Middleware')
