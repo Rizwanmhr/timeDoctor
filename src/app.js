@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 // let port = 3000 || process.env.PORT;
 dotenv.config({path:"./config.env"})
-let port = 3000 || process.env.PORT;
+let port = 8000 || process.env.PORT;
 require('./db/conn')
 app.use(express.json())
 //to link our routers

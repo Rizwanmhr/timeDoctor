@@ -4,8 +4,11 @@ require('../db/conn')
 const User = require('../models/userSchema')
 
 
-router.post("/register", async (req,res)=>{
+router.post("/employee", async (req,res)=>{
     const {name, email, phone, designation, employeetype, userId} = req.body;
+    console.log(name, email, phone, designation, employeetype, userId)
+    console.log(userId)
+    console.log(email)
   if(!name || !email || !phone || !designation || !employeetype || !userId){
      return res.status(422).json({error:"Plz enter user id"})
   }
@@ -23,7 +26,7 @@ try {
 
 });
 //handle Get method
-router.get("/register", async (req,res) => {
+router.get("/employee", async (req,res) => {
     try {
         const employeData = await User.find({});
         res.status(200).send(employeData)

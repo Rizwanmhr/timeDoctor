@@ -20,7 +20,11 @@ const userSchema = new mongoose.Schema({
     userId:{
         type:Number,
         require:true
-    }
+    },
+    timeStamp: {
+        type: Date,
+        default: Date.now(),
+      },
 })
-const User = mongoose.model('USER',userSchema);
+const User = mongoose.model('user',userSchema);
 module.exports = User;
